@@ -1,10 +1,10 @@
 window.onload = function () {
   document.addEventListener("keyup", keyPush);
-  const canv = document.getElementById("game");
-  const ctx = canv.getContext("2d");
+  canv = document.getElementById("game");
+  ctx = canv.getContext("2d");
   setInterval(game, 1000 / 2);
 };
-
+//configurations
 let snakeheadX = 1;
 let snakeheadY = 1;
 let gridSize = 20;
@@ -12,15 +12,16 @@ let foodX = 7;
 let foodY = 2;
 let moveX = 0;
 let moveY = 0;
-let snakeBody = [{x:1,y:1}];
+let snakeBody = [{ x: 1, y: 1 }];
 let snakeLength = 1;
 let score = 0;
+
 
 function game() {
   document.getElementById("score").innerHTML = score;
   snakeheadX += moveX;
   snakeheadY += moveY;
-
+debugger
   ctx.fillStyle = "blue";
   ctx.fillRect(0, 0, canv.width, canv.height);
 
@@ -32,11 +33,16 @@ function game() {
       gridSize - 2,
       gridSize - 2
     );
-    if(snakeBody[i].x===snakeheadX && snakeBody[i].y===snakeheadY){
-        snakeLength=1;
-        score=0;
+    //the snamke hit himself
+    if (snakeBody[i].x === snakeheadX && snakeBody[i].y === snakeheadY) {
+      snakeLength = 1;
+      score = 0;
     }
-    snakeBody.push({x:snakeheadX,y:snakeheadY});
+    //push the head into the array
+    snakeBody.push({ x: snakeheadX, y: snakeheadY });
+    while (snakeBody.length > snakeLength) {
+      snakeBody.shift();
+    }
   }
 }
 
