@@ -4,6 +4,7 @@ window.onload = function() {
     //interval game
 }
 ////////NEW GAME//////
+////////NEW GAME//////
 //arguments - config object
 
 //function game
