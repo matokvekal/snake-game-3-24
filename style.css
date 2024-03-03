@@ -1,7 +1,7 @@
 #game{
 
-  background-color: #5719d3;
-
+  /* background-color: #5719d3; */
+border: 2px solid blue;
 }
 body{
     font-family: 'Courier New', Courier, monospace;
